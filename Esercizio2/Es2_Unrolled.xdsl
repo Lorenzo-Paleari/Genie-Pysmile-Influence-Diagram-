@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<cpt id="Terreno">
+			<state id="Sconnesso" />
+			<state id="Connesso" />
+			<probabilities>0.3 0.7</probabilities>
+		</cpt>
+		<cpt id="Tempo">
+			<state id="Umido" />
+			<state id="Secco" />
+			<probabilities>0.1 0.9</probabilities>
+		</cpt>
+		<cpt id="Posizione">
+			<state id="centro" />
+			<state id="sinistra" />
+			<state id="destra" />
+			<probabilities>1 0 0</probabilities>
+		</cpt>
+		<noisymax id="Guasto">
+			<state id="Si" />
+			<state id="No" />
+			<parents>Tempo Terreno</parents>
+			<strengths>0 1 0 1</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 0.5 0.5 0 1 0.1 0.9</parameters>
+		</noisymax>
+		<noisymax id="Accuratezza">
+			<state id="Pessima" />
+			<state id="Buona" />
+			<state id="Ottima" />
+			<parents>Tempo Terreno Guasto</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.3 0.15 0.5499999999999999 0 0 1 0.6 0.3 0.1 0 0 1 1 0 0 0 0 1 0.005 0.005 0.99</parameters>
+		</noisymax>
+		<cpt id="Posizione_rilevata">
+			<state id="centro" />
+			<state id="destra" />
+			<state id="sinistra" />
+			<parents>Posizione Accuratezza</parents>
+			<probabilities>0.35 0.3250000000000001 0.325 0.9 0.04999999999999993 0.05 0.99 0.005 0.005000000000000004 0.325 0.325 0.35 0.04999999999999993 0.05 0.9 0.005000000000000004 0.005 0.99 0.325 0.35 0.325 0.04999999999999998 0.9 0.05 0.005000000000000009 0.99 0.005</probabilities>
+		</cpt>
+		<cpt id="Azione">
+			<state id="Stay" />
+			<state id="Right" />
+			<state id="Left" />
+			<probabilities>0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+		</cpt>
+		<utility id="VAL">
+			<parents>Posizione</parents>
+			<utilities>1 0 0</utilities>
+		</utility>
+		<cpt id="Posizione_1">
+			<state id="centro" />
+			<state id="sinistra" />
+			<state id="destra" />
+			<parents>Posizione Azione</parents>
+			<probabilities>0.9 0.05 0.04999999999999998 0.05 0.05 0.9 0.05 0.9 0.04999999999999998 0.1 0.9 0 0.9 0.09999999999999998 0 0.09999999999999998 0.9 0 0.1 0 0.8999999999999999 0.1000000000000001 0 0.8999999999999999 0.9 0 0.1</probabilities>
+			<property id="DSL_PLATE_NODE">2 1</property>
+		</cpt>
+		<cpt id="Tempo_1">
+			<state id="Umido" />
+			<state id="Secco" />
+			<parents>Tempo</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">1 1</property>
+		</cpt>
+		<cpt id="Terreno_1">
+			<state id="Sconnesso" />
+			<state id="Connesso" />
+			<parents>Terreno</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">0 1</property>
+		</cpt>
+		<noisymax id="Guasto_1">
+			<state id="Si" />
+			<state id="No" />
+			<parents>Tempo_1 Terreno_1 Guasto</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 0.5 0.5 0 1 1 0 0 1 0.1 0.9</parameters>
+			<property id="DSL_PLATE_NODE">3 1</property>
+		</noisymax>
+		<noisymax id="Accuratezza_1">
+			<state id="Pessima" />
+			<state id="Buona" />
+			<state id="Ottima" />
+			<parents>Tempo_1 Terreno_1 Guasto_1</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.3 0.15 0.5499999999999999 0 0 1 0.6 0.3 0.1 0 0 1 1 0 0 0 0 1 0.005 0.005 0.99</parameters>
+			<property id="DSL_PLATE_NODE">4 1</property>
+		</noisymax>
+		<cpt id="Posizione_rilevata_1">
+			<state id="centro" />
+			<state id="destra" />
+			<state id="sinistra" />
+			<parents>Posizione_1 Accuratezza_1</parents>
+			<probabilities>0.35 0.3250000000000001 0.325 0.9 0.04999999999999993 0.05 0.99 0.005 0.005000000000000004 0.325 0.325 0.35 0.04999999999999993 0.05 0.9 0.005000000000000004 0.005 0.99 0.325 0.35 0.325 0.04999999999999998 0.9 0.05 0.005000000000000009 0.99 0.005</probabilities>
+			<property id="DSL_PLATE_NODE">5 1</property>
+		</cpt>
+		<cpt id="Azione_1">
+			<state id="Stay" />
+			<state id="Right" />
+			<state id="Left" />
+			<probabilities>0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+			<property id="DSL_PLATE_NODE">6 1</property>
+		</cpt>
+		<cpt id="Posizione_2">
+			<state id="centro" />
+			<state id="sinistra" />
+			<state id="destra" />
+			<parents>Posizione_1 Azione_1</parents>
+			<probabilities>0.9 0.05 0.04999999999999998 0.05 0.05 0.9 0.05 0.9 0.04999999999999998 0.1 0.9 0 0.9 0.09999999999999998 0 0.09999999999999998 0.9 0 0.1 0 0.8999999999999999 0.1000000000000001 0 0.8999999999999999 0.9 0 0.1</probabilities>
+			<property id="DSL_PLATE_NODE">2 2</property>
+		</cpt>
+		<cpt id="Tempo_2">
+			<state id="Umido" />
+			<state id="Secco" />
+			<parents>Tempo_1</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">1 2</property>
+		</cpt>
+		<cpt id="Terreno_2">
+			<state id="Sconnesso" />
+			<state id="Connesso" />
+			<parents>Terreno_1</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">0 2</property>
+		</cpt>
+		<noisymax id="Guasto_2">
+			<state id="Si" />
+			<state id="No" />
+			<parents>Tempo_2 Terreno_2 Guasto_1</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 0.5 0.5 0 1 1 0 0 1 0.1 0.9</parameters>
+			<property id="DSL_PLATE_NODE">3 2</property>
+		</noisymax>
+		<noisymax id="Accuratezza_2">
+			<state id="Pessima" />
+			<state id="Buona" />
+			<state id="Ottima" />
+			<parents>Tempo_2 Terreno_2 Guasto_2</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.3 0.15 0.5499999999999999 0 0 1 0.6 0.3 0.1 0 0 1 1 0 0 0 0 1 0.005 0.005 0.99</parameters>
+			<property id="DSL_PLATE_NODE">4 2</property>
+		</noisymax>
+		<cpt id="Posizione_rilevata_2">
+			<state id="centro" />
+			<state id="destra" />
+			<state id="sinistra" />
+			<parents>Posizione_2 Accuratezza_2</parents>
+			<probabilities>0.35 0.3250000000000001 0.325 0.9 0.04999999999999993 0.05 0.99 0.005 0.005000000000000004 0.325 0.325 0.35 0.04999999999999993 0.05 0.9 0.005000000000000004 0.005 0.99 0.325 0.35 0.325 0.04999999999999998 0.9 0.05 0.005000000000000009 0.99 0.005</probabilities>
+			<property id="DSL_PLATE_NODE">5 2</property>
+		</cpt>
+		<cpt id="Azione_2">
+			<state id="Stay" />
+			<state id="Right" />
+			<state id="Left" />
+			<probabilities>0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+			<property id="DSL_PLATE_NODE">6 2</property>
+		</cpt>
+		<cpt id="Posizione_3">
+			<state id="centro" />
+			<state id="sinistra" />
+			<state id="destra" />
+			<parents>Posizione_2 Azione_2</parents>
+			<probabilities>0.9 0.05 0.04999999999999998 0.05 0.05 0.9 0.05 0.9 0.04999999999999998 0.1 0.9 0 0.9 0.09999999999999998 0 0.09999999999999998 0.9 0 0.1 0 0.8999999999999999 0.1000000000000001 0 0.8999999999999999 0.9 0 0.1</probabilities>
+			<property id="DSL_PLATE_NODE">2 3</property>
+		</cpt>
+		<cpt id="Tempo_3">
+			<state id="Umido" />
+			<state id="Secco" />
+			<parents>Tempo_2</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">1 3</property>
+		</cpt>
+		<cpt id="Terreno_3">
+			<state id="Sconnesso" />
+			<state id="Connesso" />
+			<parents>Terreno_2</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">0 3</property>
+		</cpt>
+		<noisymax id="Guasto_3">
+			<state id="Si" />
+			<state id="No" />
+			<parents>Tempo_3 Terreno_3 Guasto_2</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 0.5 0.5 0 1 1 0 0 1 0.1 0.9</parameters>
+			<property id="DSL_PLATE_NODE">3 3</property>
+		</noisymax>
+		<noisymax id="Accuratezza_3">
+			<state id="Pessima" />
+			<state id="Buona" />
+			<state id="Ottima" />
+			<parents>Tempo_3 Terreno_3 Guasto_3</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.3 0.15 0.5499999999999999 0 0 1 0.6 0.3 0.1 0 0 1 1 0 0 0 0 1 0.005 0.005 0.99</parameters>
+			<property id="DSL_PLATE_NODE">4 3</property>
+		</noisymax>
+		<cpt id="Posizione_rilevata_3">
+			<state id="centro" />
+			<state id="destra" />
+			<state id="sinistra" />
+			<parents>Posizione_3 Accuratezza_3</parents>
+			<probabilities>0.35 0.3250000000000001 0.325 0.9 0.04999999999999993 0.05 0.99 0.005 0.005000000000000004 0.325 0.325 0.35 0.04999999999999993 0.05 0.9 0.005000000000000004 0.005 0.99 0.325 0.35 0.325 0.04999999999999998 0.9 0.05 0.005000000000000009 0.99 0.005</probabilities>
+			<property id="DSL_PLATE_NODE">5 3</property>
+		</cpt>
+		<cpt id="Azione_3">
+			<state id="Stay" />
+			<state id="Right" />
+			<state id="Left" />
+			<probabilities>0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+			<property id="DSL_PLATE_NODE">6 3</property>
+		</cpt>
+		<cpt id="Posizione_4">
+			<state id="centro" />
+			<state id="sinistra" />
+			<state id="destra" />
+			<parents>Posizione_3 Azione_3</parents>
+			<probabilities>0.9 0.05 0.04999999999999998 0.05 0.05 0.9 0.05 0.9 0.04999999999999998 0.1 0.9 0 0.9 0.09999999999999998 0 0.09999999999999998 0.9 0 0.1 0 0.8999999999999999 0.1000000000000001 0 0.8999999999999999 0.9 0 0.1</probabilities>
+			<property id="DSL_PLATE_NODE">2 4</property>
+		</cpt>
+		<utility id="VAL_4">
+			<parents>Posizione_4</parents>
+			<utilities>1 0 0</utilities>
+			<property id="DSL_PLATE_NODE">7 4</property>
+		</utility>
+		<utility id="VAL_3">
+			<parents>Posizione_3</parents>
+			<utilities>1 0 0</utilities>
+			<property id="DSL_PLATE_NODE">7 3</property>
+		</utility>
+		<utility id="VAL_2">
+			<parents>Posizione_2</parents>
+			<utilities>1 0 0</utilities>
+			<property id="DSL_PLATE_NODE">7 2</property>
+		</utility>
+		<utility id="VAL_1">
+			<parents>Posizione_1</parents>
+			<utilities>1 0 0</utilities>
+			<property id="DSL_PLATE_NODE">7 1</property>
+		</utility>
+		<mau id="Punteggio">
+			<parents>VAL_4 VAL_3 VAL_2 VAL VAL_1</parents>
+			<weights>1 1 1 1 1</weights>
+		</mau>
+		<cpt id="Terreno_4">
+			<state id="Sconnesso" />
+			<state id="Connesso" />
+			<parents>Terreno_3</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">0 4</property>
+		</cpt>
+		<cpt id="Tempo_4">
+			<state id="Umido" />
+			<state id="Secco" />
+			<parents>Tempo_3</parents>
+			<probabilities>0.9 0.09999999999999998 0.2 0.8</probabilities>
+			<property id="DSL_PLATE_NODE">1 4</property>
+		</cpt>
+		<noisymax id="Guasto_4">
+			<state id="Si" />
+			<state id="No" />
+			<parents>Tempo_4 Terreno_4 Guasto_3</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.09999999999999998 0.9 0 1 0.5 0.5 0 1 1 0 0 1 0.1 0.9</parameters>
+			<property id="DSL_PLATE_NODE">3 4</property>
+		</noisymax>
+		<noisymax id="Accuratezza_4">
+			<state id="Pessima" />
+			<state id="Buona" />
+			<state id="Ottima" />
+			<parents>Tempo_4 Terreno_4 Guasto_4</parents>
+			<strengths>0 1 0 1 0 1</strengths>
+			<parameters>0.3 0.15 0.5499999999999999 0 0 1 0.6 0.3 0.1 0 0 1 1 0 0 0 0 1 0.005 0.005 0.99</parameters>
+			<property id="DSL_PLATE_NODE">4 4</property>
+		</noisymax>
+		<cpt id="Posizione_rilevata_4">
+			<state id="centro" />
+			<state id="destra" />
+			<state id="sinistra" />
+			<parents>Posizione_4 Accuratezza_4</parents>
+			<probabilities>0.35 0.3250000000000001 0.325 0.9 0.04999999999999993 0.05 0.99 0.005 0.005000000000000004 0.325 0.325 0.35 0.04999999999999993 0.05 0.9 0.005000000000000004 0.005 0.99 0.325 0.35 0.325 0.04999999999999998 0.9 0.05 0.005000000000000009 0.99 0.005</probabilities>
+			<property id="DSL_PLATE_NODE">5 4</property>
+		</cpt>
+		<cpt id="Azione_4">
+			<state id="Stay" />
+			<state id="Right" />
+			<state id="Left" />
+			<probabilities>0.3333333333333333 0.3333333333333333 0.3333333333333333</probabilities>
+			<property id="DSL_PLATE_NODE">6 4</property>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 5.0.5310.0 ACADEMIC" name="Network1 unrolled">
+			<node id="Terreno">
+				<name>Terreno</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>341 442 395 475</position>
+			</node>
+			<node id="Tempo">
+				<name>Tempo</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>336 341 398 371</position>
+			</node>
+			<node id="Posizione">
+				<name>Posizione</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>328 243 409 286</position>
+			</node>
+			<node id="Guasto">
+				<name>Guasto</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>181 439 242 477</position>
+			</node>
+			<node id="Accuratezza">
+				<name>Accuratezza</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>174 333 249 379</position>
+			</node>
+			<node id="Posizione_rilevata">
+				<name>Posizione rilevata</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>155 241 267 287</position>
+			</node>
+			<node id="Azione">
+				<name>Azione</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>180 161 245 195</position>
+			</node>
+			<node id="VAL">
+				<name>VAL</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>337 79 396 117</position>
+			</node>
+			<node id="Punteggio">
+				<name>Punteggio</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1021 2 1088 34</position>
+			</node>
+			<textbox>
+				<caption>Step0</caption>
+				<font color="696969" name="Arial" size="7" />
+				<position>219 502 243 514</position>
+			</textbox>
+			<textbox>
+				<caption>Step1</caption>
+				<font color="696969" name="Arial" size="7" />
+				<position>614 571 638 583</position>
+			</textbox>
+			<textbox>
+				<caption>Step2</caption>
+				<font color="696969" name="Arial" size="7" />
+				<position>1034 569 1058 581</position>
+			</textbox>
+			<textbox>
+				<caption>Step3</caption>
+				<font color="696969" name="Arial" size="7" />
+				<position>1449 579 1473 591</position>
+			</textbox>
+			<textbox>
+				<caption>Step4</caption>
+				<font color="696969" name="Arial" size="7" />
+				<position>1880 558 1904 570</position>
+			</textbox>
+			<node id="Terreno_1">
+				<name>Terreno (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>760 443 814 476</position>
+			</node>
+			<node id="Tempo_1">
+				<name>Tempo (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>766 331 828 361</position>
+			</node>
+			<node id="Posizione_1">
+				<name>Posizione (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>602 157 683 200</position>
+			</node>
+			<node id="Guasto_1">
+				<name>Guasto (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>599 517 660 555</position>
+			</node>
+			<node id="Accuratezza_1">
+				<name>Accuratezza (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>597 362 672 408</position>
+			</node>
+			<node id="Posizione_rilevata_1">
+				<name>Posizione rilevata (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>580 247 692 293</position>
+			</node>
+			<node id="Azione_1">
+				<name>Azione (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>805 241 870 275</position>
+			</node>
+			<node id="VAL_1">
+				<name>VAL (t=1)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>612 81 671 119</position>
+			</node>
+			<node id="Terreno_2">
+				<name>Terreno (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>893 429 947 462</position>
+			</node>
+			<node id="Tempo_2">
+				<name>Tempo (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>897 297 959 327</position>
+			</node>
+			<node id="Posizione_2">
+				<name>Posizione (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1011 153 1092 196</position>
+			</node>
+			<node id="Guasto_2">
+				<name>Guasto (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1022 518 1083 556</position>
+			</node>
+			<node id="Accuratezza_2">
+				<name>Accuratezza (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1012 333 1087 379</position>
+			</node>
+			<node id="Posizione_rilevata_2">
+				<name>Posizione rilevata (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>993 241 1105 287</position>
+			</node>
+			<node id="Azione_2">
+				<name>Azione (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1190 246 1255 280</position>
+			</node>
+			<node id="VAL_2">
+				<name>VAL (t=2)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1022 88 1081 126</position>
+			</node>
+			<node id="Terreno_3">
+				<name>Terreno (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1277 433 1331 466</position>
+			</node>
+			<node id="Tempo_3">
+				<name>Tempo (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1300 321 1362 351</position>
+			</node>
+			<node id="Posizione_3">
+				<name>Posizione (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1438 155 1519 198</position>
+			</node>
+			<node id="Guasto_3">
+				<name>Guasto (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1437 517 1498 555</position>
+			</node>
+			<node id="Accuratezza_3">
+				<name>Accuratezza (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1431 353 1506 399</position>
+			</node>
+			<node id="Posizione_rilevata_3">
+				<name>Posizione rilevata (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1412 261 1524 307</position>
+			</node>
+			<node id="Azione_3">
+				<name>Azione (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1577 264 1642 298</position>
+			</node>
+			<node id="VAL_3">
+				<name>VAL (t=3)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1456 76 1515 114</position>
+			</node>
+			<node id="Terreno_4">
+				<name>Terreno (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1693 432 1747 465</position>
+			</node>
+			<node id="Tempo_4">
+				<name>Tempo (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1730 319 1792 349</position>
+			</node>
+			<node id="Posizione_4">
+				<name>Posizione (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1852 142 1933 185</position>
+			</node>
+			<node id="Guasto_4">
+				<name>Guasto (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1858 506 1919 544</position>
+			</node>
+			<node id="Accuratezza_4">
+				<name>Accuratezza (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1850 333 1925 379</position>
+			</node>
+			<node id="Posizione_rilevata_4">
+				<name>Posizione rilevata (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1831 241 1943 287</position>
+			</node>
+			<node id="Azione_4">
+				<name>Azione (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1987 247 2052 281</position>
+			</node>
+			<node id="VAL_4">
+				<name>VAL (t=4)</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1853 75 1912 113</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>
